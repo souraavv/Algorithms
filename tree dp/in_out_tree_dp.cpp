@@ -7,21 +7,7 @@ ll flg;
 ll vis[maxn],dp[maxn];
 ll in[maxn];// height of the node considering it as a root from its leaf descender
 ll out[maxn]; // other path not considering the node and its subtree
-/*
-max path from a node can be max of
-height of the node considering it as a root from its leaf descender and
-other path not considering the node and its subtree
 
-         1      the path from 7 can be 7-6-8 ie inside the children of 7 or to outside its child ie in the remaining tree
-       / | \    from 7-6 is common ie in[6] or height of 7, so it is either 6-8 or 6-4-1-2-5
-      2  3  4   (6-8) by h1=max(in[x])+2, where x is all other child of 6 and if we join 2 children of 6,it will cost us 2 egde , hence +2
-     /      |    6-4-1-2-5 by h2 = out[6]+1, where out[6] is the out for 6 and +1 because if we connect 7 to 6 to its parent
-     5      6     it will cost one edge
-           / \      in[7] =0; 7
-         (7)  8     out[7] = max(h1, h2) 6-4-1-2-5
-         / \          dp[7] = in[]+out[] 7 + 6-4-1-2-5
-        . . .
-*/
 
 /* recursion relation for:
     in[u]=max(in[v])+1,for every child v of u,***same as finding height***
